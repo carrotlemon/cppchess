@@ -1,12 +1,12 @@
 # Compiler and flags
 CC = g++
-CFLAGS = -Wall -std=c99 $(shell pkg-config --cflags raylib)
-LDFLAGS = $(shell pkg-config --libs raylib)
+CFLAGS = -Wall -std=c++17 $(shell pkg-config --cflags sdl2 SDL2_image)
+LDFLAGS = $(shell pkg-config --libs sdl2 SDL2_image)
 
 # Output binary name
 TARGET = chess
 
-# Automatically find all .c files in the current directory
+# Source and object files
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
@@ -16,7 +16,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean up
