@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_render.h>
-#include <bits/stdc++.h>
+#include "bits.h"
 #include <cstddef>
 #include <cstdint>
 
